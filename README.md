@@ -22,8 +22,8 @@ Android가 Linux 기반 OS이지만 지원하지 않는 명령어와 디렉터�
 프로그램이 사용하는 OS에 따라 자동으로 Github에서 코드를 다운로드 받는 원리로 작동되고 pip 설치가 필요한 라이브러리는 사용하지 않아야하고 자동으로 필요한 라이브러리를 다운로드하게 할겁니다.
 
 # pip 설치가 필요한 라이브러리
-1. getmac (pip install getmac)
-2. cpuinfo (pip install pycpuinfo)
+1. getmac / Windows : pip install getmac
+2. cpuinfo / Windows : pip install py-cpuinfo
 
 # 사용된 라이브러리
 1. time
