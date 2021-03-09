@@ -1,6 +1,6 @@
-#checkhw.py for Android
+#checkhw.py for Linux
 
-import psutil, cpuinfo, platform, getmac, shutil
+import psutil, py_cpuinfo, platform, getmac, shutil
 import socket
 
 cpu_name = 0

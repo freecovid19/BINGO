@@ -1,2 +1,2 @@
 #내려받기 관리자
-#dlmgr.py for Android
+#dlmgr.py for Linux

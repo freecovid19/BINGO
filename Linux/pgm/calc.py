@@ -1,4 +1,4 @@
-#calc.py for Android
+#calc.py for Linux
 #v1.0
 
 result = 0

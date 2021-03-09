@@ -1,4 +1,4 @@
-#command.py for Android
+#command.py for Linux
 
 try:
 	import cpuinfo, platform, psutil, os, shutil
@@ -9,7 +9,7 @@ except:
 		errorlog.write('에러코드 : 001C\n')
 		errorlog.write('에러코드 읽는 방법을 참조해 주세요.\n')
 
-path = '/storage/emulated/0/OS_Android/sys'
+path = 'readme폴더를 참조하여 이 변수를 편집하세요.'
 
 #지우기
 def clear():
@@ -28,8 +28,8 @@ def help():
 
 #정보
 def info():
-	print('BINGO For Android')
-	print('리눅스 정보 :', platform.platform())
+	print('BINGO For Linux')
+	print('Linux 정보 :', platform.platform())
 	print('v0.2')
 
 #하드웨어정보
@@ -104,12 +104,12 @@ def easter():
 #파일리스트
 def filelist():
 	print(os.listdir())
-
+'''
 #캐쉬 삭제
 def delcache():
 	rmdir('rmdir -f /storage/emulated/0/OS_Android/__pycache__')
 	rmdir('rmdir -f /storage/emulated/0/OS_Android/pgm/__pycache__')
-
+'''
 #그거 그냥 출력해(Just Print It Out)
 def jpio(com):
 	try:

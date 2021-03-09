@@ -1,4 +1,4 @@
-#문서편집기 for Android
+#문서편집기 for Linux
 #v1.0
 
 #지우기
