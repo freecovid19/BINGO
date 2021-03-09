@@ -38,3 +38,13 @@ Android가 Linux 기반 OS이지만 지원하지 않는 명령어와 디렉터�
 10. getmac
 
 # 참여하신 분들
+
+Android 버전
+1. kty0205
+
+Windows 버전
+
+Linux 버전
+1. kty0205
+
+설치 프로그램
