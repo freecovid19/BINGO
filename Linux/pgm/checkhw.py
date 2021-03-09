@@ -1,6 +1,6 @@
 #checkhw.py for Linux
 
-import psutil, py_cpuinfo, platform, getmac, shutil
+import psutil, cpuinfo, platform, getmac, shutil
 import socket
 
 cpu_name = 0
@@ -68,14 +68,15 @@ def writefile():
 	global cpu_normal_clock, arch_type
 	global ip, internal_ip, external_ip, mac_add
 	global total_ram, disk_size, disk_used, disk_free
-	
-	hwlist = [cpu_name, cpu_cores, cpu_physic_cores, cpu_normal_clock, arch_type,  internal_ip, external_ip, mac_add,  total_ram, disk_size, disk_used, disk_free]
-	
+
 	cpu()
 	ram()
 	disk()
 	network()
-	with open('/storage/emulated/0/OS_Android/sys/hwconfig.txt', 'w') as hw:
+	
+	hwlist = [cpu_name, cpu_cores, cpu_physic_cores, cpu_normal_clock, arch_type,  internal_ip, external_ip, mac_add,  total_ram, disk_size, disk_used, disk_free]
+	
+	with open('/home/pi/BINGO/BINGO/Linux/sys/hwconfig.txt', 'w') as hw:
 		s = 0
 		for i in hwlist:
 			hw.write(str(hwlist[s]))
