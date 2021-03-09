@@ -10,8 +10,8 @@
 6. 버전 넘버링은 수정하지 않는다.
 
 # pip 설치가 필요한 라이브러리
--getmac (pip installl getmac)
--cpuinfo (pip install py-cpuinfo)
+-getmac
+-cpuinfo
 
 # 사용된 라이브러리
 1. time
