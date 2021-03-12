@@ -8,7 +8,7 @@ installer.py v0.1
 Windows, Linux. Android(선택)
 '''
 
-import requests, os, platform, time, zipfile
+import requests, os, platform, time, zipfile, shutil
 
 def download(url, file_name = None):
 	if not file_name:
@@ -22,56 +22,87 @@ def extrec(zfile, path):
 	file.extractall(path)
 	file.close()
 
-print('===[설치 프로그램]===')
+print('===[BINGO 설치 프로그램]===')
 print('사용자의 컴퓨터에 자동으로 BINGO를 설치합니다.')
 print('관리자권한(Root)으로 실행하세요.\n')
 
-os = platform.system()
+useros = platform.system()
 
-if os == 'Linux':
+if useros == 'Linux':
 	while True:
 		print('Android에 설치하실건가요? (y/n)')
 		ans = str(input('Installer>'))
 		if ans == 'y':
-			os = 'Android'
+			useros = 'Android'
 			path = '/storage/emulated/0/OS_Android'
 			break
 		elif ans == 'n':
-			os = 'Linux'
+			useros = 'Linux'
 			break
       
-if os == 'Windows':
-	ospath = 'C:\\OS_Windows'
-  downloadpath = 'C:\\'
-elif os == 'Linux':
+if useros == 'Windows':
+	path = 'C:\\'
+elif useros == 'Linux':
 	print('사용자이름을 입력하세요.')
 	user = str(input('Installer>'))
-	ospath = '/home/' + user + '/OS_Linux'
-  downloadpath = '/home' + user
-elif os == 'Darwin' or 'darwin':
+	path = '/home' + '/' + user
+elif useros == 'Darwin' or 'darwin':
 	print('죄송합니다, macOS는 지원하지 않습니다.')
 	time.sleep(5)
 	quit()
 
-if os == 'Windows':
+if useros == 'Windows':
+	print('초기화중...')
+	try:
+		shutil.rmtree('C:\\BINGO-Windows')
+	except:
+		pass
+	try:
+		shutil.rmtree('C:\\OS_Windows')
+	except:
+		pass
 	print('다운로드중...')
 	download('https://github.com/kty0205/BINGO/archive/Windows.zip', path+'\\Windows.zip')
 	file = path + '\\Windows.zip'
 	print('압축해제중...')
 	extrec(file, path)
-elif os == 'Linux':
+	os.rename('C:\\BINGO-Windows', 'C:\\OS_Windows')
+	os.remove('C:\\Windows.zip')
+elif useros == 'Linux':
+	try:
+		shutil.rmtree(path+'/BINGO-Linux')
+	except:
+		pass
+	try:
+		shutil.rmtree(path+'/OS_Linux')
+	except:
+		pass
 	print('다운로드중...')
 	download('https://github.com/kty0205/BINGO/archive/Linux.zip', path+'/Linux.zip')
 	file = path + '/Linux.zip'
 	print('압축해제중...')
 	extrec(file, path)
-elif os == 'Android':
+	os.rename(path+'/BINGO-Linux', path+'/OS_Linux')
+	with open(path+'/OS_Linux/sys/direc.txt', 'w') as direc:
+		direc.write(path+'/OS_Linux')
+	os.remove(path+'/Linux.zip')
+elif useros == 'Android':
+	try:
+		shutil.rmtree('/storage/emulated/0/OS_Android')
+	except:
+		pass
+	try:
+		shutil.rmtree('/storage/emulated/0/BINGO-Android')
+	except:
+		pass
 	print('다운로드중...')
 	download('https://github.com/kty0205/BINGO/archive/Android.zip', path+'/Android.zip')
 	file = path + '/Android.zip'
 	print('압축해제중...')
 	extrec(file, path)
+	os.rename('/storage/emulated/0/BINGO-Android', '/storage/emulated/0/OS_Android')
+	os.remove('/storage/emulated/0/Android.zip')
 
 print('다운로드가 완료되었습니다. Main.py를 실행해주세요.')
 print('설치된 디렉터리 :', path)
-time.sleep(5)
+time.sleep(3)
