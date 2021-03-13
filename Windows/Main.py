@@ -1,10 +1,11 @@
-#Main.py for Android
+#Main.py for Windows
 
 try:
 	import time, os
 	from pgm import command as com
 	import subprocess as sp
 except:
+	print('오류가 발생했습니다. errorlog.txt를 봐주세요.')
 	with open('errorlog.txt', 'w') as errorlog:
 		errorlog.write('오류가 발생했습니다.\n')
 		errorlog.write('에러코드 : 001C\n')
