@@ -34,8 +34,7 @@ Android가 Linux 기반 OS이지만 지원하지 않는 명령어와 디렉터�
 3총사(HTML, CSS, JS)를 할 수 있다면 언제든지 수정할 수 있습니다.
 
 # pip 설치가 필요한 라이브러리
-1. getmac / Windows : pip install getmac
-2. cpuinfo / Windows : pip install py-cpuinfo
+1. cpuinfo / Windows : pip install py-cpuinfo
 
 # 사용된 라이브러리
 1. time
@@ -47,7 +46,6 @@ Android가 Linux 기반 OS이지만 지원하지 않는 명령어와 디렉터�
 7. random
 8. socket
 9. subprocess
-10. getmac
 
 # 참여하신 분들
 
